@@ -1,0 +1,8 @@
+# Ignore Visual Studio and temp files
+.vs/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.db

@@ -1,0 +1,68 @@
+#print("Real-time Object Tracking")
+#print("Hello Leroy!!!!")
+
+
+from tkinter import NO
+import cv2 as cv
+from cv2.gapi.ot import track
+
+"""
+print(cv.__version__)
+print(dir(cv))
+print(hasattr(cv, 'legacy'))
+print(hasattr(cv, 'TrackerCSRT_create'))
+"""
+
+trackers ={
+   'cart':cv.legacy.TrackerCSRT_create,
+   'mosse': cv.legacy.TrackerMOSSE_create,
+   'kcf': cv.legacy.TrackerKCF_create,
+   'medianflow': cv.legacy.TrackerMedianFlow_create,
+   'mil' : cv.legacy.TrackerMIL_create,
+   'tld': cv.legacy.TrackerTLD_create,
+   'boosting': cv.legacy.TrackerBoosting_create,
+    }
+    
+#tracker_key = 'cart'  
+tracker_key = 'mosse'  # Change this to use a different tracker'
+
+tracker = trackers[tracker_key]()
+roi = None
+
+cap = cv.VideoCapture(0)
+
+while True:
+    frame = cap.read()[1]
+
+    if frame is None:
+        break
+    
+    frame = cv.resize(frame, (750, 550))
+    
+    if roi is not None:
+                success, roi = tracker.update(frame)
+
+                if success:
+                    x, y, w, h = [int(c) for c in roi]
+                    cv.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+
+                else:
+                    print('Tracking failure detected')
+
+                    roi = None
+                    tracker = trackers[tracker_key]()
+
+
+    cv.imshow("Tracking", frame)
+    k = cv.waitKey(30)
+    
+    if k == ord('s'):
+        roi = cv.selectROI("Tracking", frame)
+
+        tracker.init(frame, roi)
+
+    elif k == ord('q'):
+        break
+
+cap.release()
+cv.destroyAllWindows()
