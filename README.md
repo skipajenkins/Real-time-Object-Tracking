@@ -35,22 +35,28 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+
+---
+
 ## 🎮 Usage
-Start your webcam or load a video file.
+-- Start your webcam or load a video file.
 
-Watch as bounding boxes 🎯 follow detected objects in real time!
+-- Watch as bounding boxes 🎯 follow detected objects in real time!
 
-Modify detection settings to track specific objects of interest.
+-- Modify detection settings to track specific objects of interest.
+
+---
 
 ## 🤝 Contributing
-💡 Found a bug or have a cool idea? Open an issue or PR!
+- 💡 Found a bug or have a cool idea? Open an issue or PR!
 
-🌟 Contributions are always welcome.
+- 🌟 Contributions are always welcome.**
 
 ## 📜 License
 This project is open-source and available under the MIT License.
 
 Made with ❤️ by skipajenkins
+
 
 
 
