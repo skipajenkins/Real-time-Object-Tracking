@@ -26,15 +26,16 @@ Welcome to **Real-time Object Tracking** 🛰️ — a project focused on detect
 ```bash
 git clone https://github.com/skipajenkins/Real-time-Object-Tracking.git
 cd Real-time-Object-Tracking
-2. Install dependencies
-bash
-Copy code
+```
+### 2. Install dependencies
+```bash
 pip install -r requirements.txt
-3. Run the tracker
-bash
-Copy code
+```
+### 3. Run the tracker
+```bash
 python main.py
-🎮 Usage
+```
+## 🎮 Usage
 Start your webcam or load a video file.
 
 Watch as bounding boxes 🎯 follow detected objects in real time!
@@ -48,5 +49,9 @@ Modify detection settings to track specific objects of interest.
 
 ## 📜 License
 This project is open-source and available under the MIT License.
+
+Made with ❤️ by skipajenkins
+
+
 
 
